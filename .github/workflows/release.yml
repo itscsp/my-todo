@@ -5,10 +5,9 @@ on:
     workflows: ["Sync Version from Manifest"]
     types:
       - completed
-      
+
 permissions:
   contents: write
-
 
 jobs:
   release:
@@ -38,5 +37,7 @@ jobs:
           tag_name: v${{ env.VERSION }}
           name: Release v${{ env.VERSION }}
           files: my-todo.zip
+          # Optionally, add release notes
+          # body: "See the [changelog](CHANGELOG.md) for details."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
