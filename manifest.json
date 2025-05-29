@@ -1,8 +1,8 @@
 {
     "name": "My Todo",
     "slug": "my-todo",
-    "version": "1.0.0",
-    "download_url": "https://github.com/itscsp/my-todo/releases/download/v1.0.0/my-todo.zip",
+    "version": "1.0.1",
+    "download_url": "https://github.com/itscsp/my-todo/releases/download/v1.0.1/my-todo.zip",
     "requires": "6.8.1",
     "tested": "6.8.1",
     "last_updated": "2025-05-29",
