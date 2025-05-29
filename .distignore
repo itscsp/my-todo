@@ -1,0 +1,8 @@
+.git/*
+.github/*
+node_modules/*
+*.dist
+.gitignore
+composer.json
+composer.lock
+build/*
