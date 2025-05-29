@@ -5,6 +5,10 @@ on:
     workflows: ["Sync Version from Manifest"]
     types:
       - completed
+      
+permissions:
+  contents: write
+
 
 jobs:
   release:
