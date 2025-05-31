@@ -2,7 +2,7 @@
 /**
  * Plugin Name: My Todo
  * Description: A comprehensive todo management plugin
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Chethan S Poojary
  * Text Domain: my-todo
  */
@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 // Define plugin constants
 define('MY_TODO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('MY_TODO_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('MY_TODO_VERSION', '1.0.2'); // Add this line to define the version
+define('MY_TODO_VERSION', '1.0.3'); // Add this line to define the version
 
 // Include required classes
 require_once MY_TODO_PLUGIN_PATH . 'includes/class-my-todo-plugin.php';
