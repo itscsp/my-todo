@@ -1,13 +1,16 @@
 <?php
 defined('ABSPATH') || exit;
 
-class MyTodoAdmin {
-    public function __construct() {
+class MyTodoAdmin
+{
+    public function __construct()
+    {
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
     }
 
-    public function add_admin_menu() {
+    public function add_admin_menu()
+    {
         add_menu_page(
             'My Todo',
             'My Todo',
@@ -19,8 +22,9 @@ class MyTodoAdmin {
         );
     }
 
-    public function admin_page() {
-        ?>
+    public function admin_page()
+    {
+?>
         <div class="wrap">
             <h1>My Todo Manager</h1>
             <div id="my-todo-app">
@@ -140,25 +144,25 @@ class MyTodoAdmin {
                 </form>
             </div>
         </div>
-        <?php
+<?php
     }
 
-    public function enqueue_admin_scripts($hook) {
-        
+
+    public function enqueue_admin_scripts($hook)
+    {
         if ($hook != 'toplevel_page_my-todo') {
             return;
         }
 
         wp_enqueue_script('jquery');
         wp_enqueue_style('mytodo-style', MY_TODO_PLUGIN_URL . 'assets/css/style.css');
-        wp_enqueue_script('mytodo-script', MY_TODO_PLUGIN_URL . 'assets/js/script.js', array('jquery'), null, true);
-        wp_localize_script('mytodo-script', 'myTodoAjax', array(
+        wp_enqueue_script('mytodo-admin-script', MY_TODO_PLUGIN_URL . 'assets/js/admin.js', array('jquery'), MY_TODO_VERSION, true);
+
+        wp_localize_script('mytodo-admin-script', 'myTodoAjax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('my_todo_nonce'),
-            'rest_url' => esc_url_raw(rest_url()) // Ensure rest_url is passed
+            'nonce' => wp_create_nonce('wp_rest'),
+            'rest_url' => esc_url_raw(rest_url()),
+            'is_logged_in' => is_user_logged_in()
         ));
-
-        error_log('REST URL: ' . rest_url());
-
     }
 }
